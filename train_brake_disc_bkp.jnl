@@ -1,0 +1,347 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].CircleByCenterPerimeter(center=(
+    1.25, 1.25), point1=(50.0, 0.0))
+mdb.models['Model-1'].Part(dimensionality=THREE_D, name='Part-1', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['Part-1'].BaseSolidExtrude(depth=20.0, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].setValues(
+    depth=10.0)
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].ArcByCenterEnds(center=(0.0, 0.0)
+    , direction=CLOCKWISE, point1=(20.0, 5.0), point2=(0.0, -20.0))
+mdb.models['Model-1'].sketches['__profile__'].undo()
+mdb.models['Model-1'].sketches['__profile__'].undo()
+#* Nothing to undo.
+mdb.models['Model-1'].sketches['__profile__'].ArcByCenterEnds(center=(0.0, 0.0)
+    , direction=CLOCKWISE, point1=(20.0, 0.0), point2=(-18.75, 0.0))
+mdb.models['Model-1'].sketches['__profile__'].undo()
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].CircleByCenterPerimeter(center=(
+    0.0, 0.0), point1=(50.0, 0.0))
+mdb.models['Model-1'].Part(dimensionality=THREE_D, name='Part-2', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['Part-2'].BaseSolidExtrude(depth=20.0, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['Part-2'].Mirror(keepInternalBoundaries=ON, 
+    keepOriginal=ON, mirrorPlane=
+    mdb.models['Model-1'].parts['Part-2'].faces[1])
+del mdb.models['Model-1'].parts['Part-2'].features['Mirror-1']
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-2'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['Part-2'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-2'].features['Solid extrude-1'])
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(-39.03123748999, 31.25)
+    , point2=(-25.0, 20.0160192256286))
+mdb.models['Model-1'].sketches['__edit__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[2], entity2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[3])
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[2], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[2])
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(25.0, 20.0), point2=(
+    40.0, 30.0))
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[5], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[2])
+mdb.models['Model-1'].sketches['__edit__'].ArcByStartEndTangent(entity=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[3], point1=(-25.0, 
+    20.0160192256286), point2=(25.0, 20.0))
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(26.25, 42.555111326373)
+    , point2=(10.0, 35.0))
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[7], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[2])
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(-25.0, 
+    43.3012701892219), point2=(-10.0, 35.0))
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[9], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[2])
+mdb.models['Model-1'].sketches['__edit__'].ArcByStartEndTangent(entity=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[7], point1=(-10.0, 
+    35.0), point2=(10.0, 35.0))
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].geometry[2], ))
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].parts['Part-2'].PartitionEdgeByParam(edges=
+    mdb.models['Model-1'].parts['Part-2'].edges.getSequenceFromMask(('[#1 ]', 
+    ), ), parameter=0.847838897468084)
+del mdb.models['Model-1'].parts['Part-2']
+mdb.openAcis(
+    'C:/Users/mofid/Desktop/1-Abaqus/abaqus-cae-quarter-model-of-catena-chain-1.snapshot.9/get_chain.sat'
+    , scaleFromFile=OFF)
+mdb.models['Model-1'].PartFromGeometryFile(combine=False, dimensionality=
+    THREE_D, geometryFile=mdb.acis, name='brake_pedal-1', type=DEFORMABLE_BODY)
+mdb.models['Model-1'].PartFromGeometryFile(bodyNum=2, combine=False, 
+    dimensionality=THREE_D, geometryFile=mdb.acis, name='brake_pedal-2', type=
+    DEFORMABLE_BODY)
+del mdb.models['Model-1'].parts['brake_pedal-2']
+mdb.models['Model-1'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='Part-1-1', 
+    part=mdb.models['Model-1'].parts['Part-1'])
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'brake_pedal-1-1', part=mdb.models['Model-1'].parts['brake_pedal-1'])
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(71.0, 0.0, -2.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(-7.32233, 17.67767, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(0.0, 0.2, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(0.0, 0.3, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(0.0, 7.2, 0.0))
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].Material(name='Steel')
+mdb.models['Model-1'].materials['Steel'].Density(table=((7.85e-09, ), ))
+mdb.models['Model-1'].materials['Steel'].Conductivity(table=((48.0, ), ))
+mdb.models['Model-1'].materials['Steel'].Elastic(table=((209000.0, 0.3), ))
+mdb.models['Model-1'].materials['Steel'].HeatGeneration()
+mdb.models['Model-1'].materials['Steel'].Expansion(table=((1.26e-05, ), ))
+mdb.models['Model-1'].materials['Steel'].SpecificHeat(table=((452000000.0, ), 
+    ))
+mdb.models['Model-1'].Material(name='CompositePad')
+mdb.models['Model-1'].materials['CompositePad'].Density(table=((1.45e-09, ), ))
+mdb.models['Model-1'].materials['CompositePad'].Elastic(table=((2200.0, 0.24, 
+    20.0), ), temperatureDependency=ON)
+mdb.models['Model-1'].materials['CompositePad'].Conductivity(table=((1.1, ), ))
+mdb.models['Model-1'].materials['CompositePad'].Expansion(table=((1.1e-05, ), 
+    ))
+mdb.models['Model-1'].materials['CompositePad'].SpecificHeat(table=((
+    12000000.0, ), ))
+mdb.models['Model-1'].HomogeneousSolidSection(material='Steel', name=
+    'SteelSection', thickness=None)
+mdb.models['Model-1'].HomogeneousSolidSection(material='CompositePad', name=
+    'PadSection', thickness=None)
+mdb.models['Model-1'].parts['brake_pedal-1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=Region(
+    cells=mdb.models['Model-1'].parts['brake_pedal-1'].cells.getSequenceFromMask(
+    mask=('[#f ]', ), )), sectionName='PadSection', thicknessAssignment=
+    FROM_SECTION)
+mdb.models['Model-1'].parts['Part-1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), )), sectionName='SteelSection', thicknessAssignment=
+    FROM_SECTION)
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].TempDisplacementDynamicsStep(improvedDtMethod=ON, 
+    massScaling=((SEMI_AUTOMATIC, MODEL, AT_BEGINNING, 1000.0, 0.0, None, 0, 0, 
+    0.0, 0.0, 0, None), ), name='Step-1', previous='Initial', timePeriod=0.1)
+mdb.models['Model-1'].TempDisplacementDynamicsStep(improvedDtMethod=ON, 
+    massScaling=((SEMI_AUTOMATIC, MODEL, AT_BEGINNING, 1000.0, 0.0, None, 0, 0, 
+    0.0, 0.0, 0, None), ), name='Step-2', previous='Step-1', timePeriod=0.04)
+mdb.models['Model-1'].steps['Step-2'].setValues(improvedDtMethod=ON, 
+    timePeriod=0.4)
+mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=(
+    'S', 'SVAVG', 'PE', 'PEVAVG', 'PEEQ', 'PEEQVAVG', 'LE', 'U', 'V', 'A', 
+    'RF', 'CSTRESS', 'NT', 'TEMP', 'HFL', 'RFL', 'EVF'))
+mdb.models['Model-1'].TabularAmplitude(data=((0.0, 0.0), (0.1, 1.0)), name=
+    'Amp-1', smooth=SOLVER_DEFAULT, timeSpan=STEP)
+mdb.models['Model-1'].RadiationToAmbient(ambientTemperature=20.0, 
+    ambientTemperatureAmp='Amp-1', createStepName='Step-2', distributionType=
+    UNIFORM, emissivity=0.6, field='', name='Int-1', radiationType=AMBIENT, 
+    surface=Region(
+    side1Faces=mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    mask=('[#6 ]', ), )))
+mdb.models['Model-1'].FilmCondition(createStepName='Step-2', definition=
+    EMBEDDED_COEFF, filmCoeff=0.1, filmCoeffAmplitude='', name='Int-2', 
+    sinkAmplitude='Amp-1', sinkDistributionType=UNIFORM, sinkFieldName='', 
+    sinkTemperature=20.0, surface=Region(
+    side1Faces=mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    mask=('[#7 ]', ), )))
+mdb.models['Model-1'].amplitudes['Amp-1'].setValues(data=((0.0, 0.0), (0.4, 
+    1.0)), smooth=SOLVER_DEFAULT, timeSpan=STEP)
+mdb.models['Model-1'].ContactProperty('IntProp-1')
+mdb.models['Model-1'].interactionProperties['IntProp-1'].TangentialBehavior(
+    dependencies=0, directionality=ISOTROPIC, elasticSlipStiffness=None, 
+    formulation=PENALTY, fraction=0.005, maximumElasticSlip=FRACTION, 
+    pressureDependency=OFF, shearStressLimit=None, slipRateDependency=OFF, 
+    table=((0.31, ), ), temperatureDependency=OFF)
+mdb.models['Model-1'].interactionProperties['IntProp-1'].HeatGeneration(
+    conversionFraction=1.0, slaveFraction=0.5)
+mdb.models['Model-1'].interactionProperties['IntProp-1'].ThermalConductance(
+    clearanceDepTable=((4000.0, 0.0), (0.0, 4000.0)), clearanceDependency=ON, 
+    definition=TABULAR, dependenciesC=0, massFlowRateDependencyC=OFF, 
+    pressureDependency=OFF, temperatureDependencyC=OFF)
+mdb.models['Model-1'].ContactExp(createStepName='Step-2', name='Int-3')
+mdb.models['Model-1'].interactions['Int-3'].includedPairs.setValuesInStep(
+    stepName='Step-2', useAllstar=ON)
+mdb.models['Model-1'].interactions['Int-3'].contactPropertyAssignments.appendInStep(
+    assignments=((GLOBAL, SELF, 'IntProp-1'), ), stepName='Step-2')
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'brake_pedal-1-2', part=mdb.models['Model-1'].parts['brake_pedal-1'])
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-2', )
+    , vector=(63.67767, 25.37767, -2.0))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'brake_pedal-1-3', part=mdb.models['Model-1'].parts['brake_pedal-1'])
+mdb.models['Model-1'].rootAssembly.rotate(angle=180.0, axisDirection=(63.67767, 
+    49.37767, -2.0), axisPoint=(-66.0, 13.0, 0.0), instanceList=(
+    'brake_pedal-1-3', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-3', )
+    , vector=(-2.482209, -9.679098, 0.392044))
+del mdb.models['Model-1'].rootAssembly.features['brake_pedal-1-3']
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-2', )
+    , vector=(0.0, 0.0, 1.0))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='Part-1-2', 
+    part=mdb.models['Model-1'].parts['Part-1'])
+del mdb.models['Model-1'].rootAssembly.features['Part-1-2']
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='Part-1-2', 
+    part=mdb.models['Model-1'].parts['Part-1'])
+del mdb.models['Model-1'].rootAssembly.features['Part-1-1']
+mdb.models['Model-1'].rootAssembly.ParallelFace(fixedPlane=
+    mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-2'].faces[6], 
+    flip=OFF, movablePlane=
+    mdb.models['Model-1'].rootAssembly.instances['Part-1-2'].faces[2])
+mdb.models['Model-1'].rootAssembly.deleteFeatures(('brake_pedal-1-2', 
+    'Parallel Face-1'))
+del mdb.models['Model-1'].rootAssembly.features['brake_pedal-1-1']
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'brake_pedal-1-1', part=mdb.models['Model-1'].parts['brake_pedal-1'])
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(59.0, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(0.0, 2.0, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(0.0, -3.0, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(-40.5, -9.5, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(40.5, 10.5, 10.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(-48.75, 1.25, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(8.25, -11.75, 0.0))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'brake_pedal-1-2', part=mdb.models['Model-1'].parts['brake_pedal-1'])
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-2', )
+    , vector=(48.75, -1.25, 0.0))
+del mdb.models['Model-1'].rootAssembly.features['brake_pedal-1-2']
+mdb.models['Model-1'].interactions['Int-3'].move('Step-2', 'Step-1')
+mdb.models['Model-1'].interactions['Int-3'].move('Step-1', 'Initial')
+mdb.models['Model-1'].interactions['Int-3'].move('Initial', 'Step-1')
+mdb.models['Model-1'].interactions['Int-3'].move('Step-1', 'Step-2')
+mdb.models['Model-1'].rootAssembly.features.changeKey(fromName='Part-1-2', 
+    toName='Part-1')
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(60.985281, 10.5, -8.485281))
+mdb.models['Model-1'].rootAssembly.rotate(angle=-20.0, axisDirection=(-20.0, 
+    33.485281, -3.514719), axisPoint=(33.485281, 0.0, 13.514719), instanceList=
+    ('brake_pedal-1-1', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=-20.0, axisDirection=(-20.0, 
+    33.485281, -3.514719), axisPoint=(33.485281, 0.0, 13.514719), instanceList=
+    ('brake_pedal-1-1', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(-67.87351, -20.349056, 1.011193))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(47.320059, 17.839861, -16.043494))
+mdb.models['Model-1'].rootAssembly.rotate(angle=40.0, axisDirection=(1.139067, 
+    -25.96243, 14.181563), axisPoint=(-1.139067, 25.96243, -14.181563), 
+    instanceList=('brake_pedal-1-1', ))
+del mdb.models['Model-1'].rootAssembly.features['brake_pedal-1-1']
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'brake_pedal-1-1', part=mdb.models['Model-1'].parts['brake_pedal-1'])
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(20.0, -13.0, 12.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(9.648232, 26.162951, -8.485281))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(17.67767, 17.67767, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(16.970563, 0.0, 0.0))
+# Save by mofid on 2024_06_29-10.38.50; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].rootAssembly.Surface(name='Surf-3', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['Part-1'].faces.getSequenceFromMask(
+    ('[#6 ]', ), ))
+mdb.models['Model-1'].interactions['Int-1'].setValues(ambientTemperature=20.0, 
+    ambientTemperatureAmp='Amp-1', distributionType=UNIFORM, emissivity=0.6, 
+    field='', radiationType=AMBIENT, surface=
+    mdb.models['Model-1'].rootAssembly.surfaces['Surf-3'])
+mdb.models['Model-1'].interactions['Int-2'].setValues(definition=EMBEDDED_COEFF
+    , filmCoeff=0.1, filmCoeffAmplitude='', sinkAmplitude='Amp-1', 
+    sinkTemperature=20.0, surface=Region(
+    side1Faces=mdb.models['Model-1'].rootAssembly.instances['Part-1'].faces.getSequenceFromMask(
+    mask=('[#7 ]', ), )))
+# Save by mofid on 2024_06_29-10.54.35; build 2021.HF3 2020_09_29-22.11.46 167722

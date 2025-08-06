@@ -1,0 +1,3025 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].CircleByCenterPerimeter(center=(
+    1.25, 1.25), point1=(50.0, 0.0))
+mdb.models['Model-1'].Part(dimensionality=THREE_D, name='Part-1', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['Part-1'].BaseSolidExtrude(depth=20.0, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].setValues(
+    depth=10.0)
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].ArcByCenterEnds(center=(0.0, 0.0)
+    , direction=CLOCKWISE, point1=(20.0, 5.0), point2=(0.0, -20.0))
+mdb.models['Model-1'].sketches['__profile__'].undo()
+mdb.models['Model-1'].sketches['__profile__'].undo()
+#* Nothing to undo.
+mdb.models['Model-1'].sketches['__profile__'].ArcByCenterEnds(center=(0.0, 0.0)
+    , direction=CLOCKWISE, point1=(20.0, 0.0), point2=(-18.75, 0.0))
+mdb.models['Model-1'].sketches['__profile__'].undo()
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].CircleByCenterPerimeter(center=(
+    0.0, 0.0), point1=(50.0, 0.0))
+mdb.models['Model-1'].Part(dimensionality=THREE_D, name='Part-2', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['Part-2'].BaseSolidExtrude(depth=20.0, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['Part-2'].Mirror(keepInternalBoundaries=ON, 
+    keepOriginal=ON, mirrorPlane=
+    mdb.models['Model-1'].parts['Part-2'].faces[1])
+del mdb.models['Model-1'].parts['Part-2'].features['Mirror-1']
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-2'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['Part-2'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-2'].features['Solid extrude-1'])
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(-39.03123748999, 31.25)
+    , point2=(-25.0, 20.0160192256286))
+mdb.models['Model-1'].sketches['__edit__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[2], entity2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[3])
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[2], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[2])
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(25.0, 20.0), point2=(
+    40.0, 30.0))
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[5], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[2])
+mdb.models['Model-1'].sketches['__edit__'].ArcByStartEndTangent(entity=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[3], point1=(-25.0, 
+    20.0160192256286), point2=(25.0, 20.0))
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(26.25, 42.555111326373)
+    , point2=(10.0, 35.0))
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[7], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[2])
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(-25.0, 
+    43.3012701892219), point2=(-10.0, 35.0))
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[9], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[2])
+mdb.models['Model-1'].sketches['__edit__'].ArcByStartEndTangent(entity=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[7], point1=(-10.0, 
+    35.0), point2=(10.0, 35.0))
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].geometry[2], ))
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].parts['Part-2'].PartitionEdgeByParam(edges=
+    mdb.models['Model-1'].parts['Part-2'].edges.getSequenceFromMask(('[#1 ]', 
+    ), ), parameter=0.847838897468084)
+del mdb.models['Model-1'].parts['Part-2']
+mdb.openAcis(
+    'C:/Users/mofid/Desktop/1-Abaqus/abaqus-cae-quarter-model-of-catena-chain-1.snapshot.9/get_chain.sat'
+    , scaleFromFile=OFF)
+mdb.models['Model-1'].PartFromGeometryFile(combine=False, dimensionality=
+    THREE_D, geometryFile=mdb.acis, name='brake_pedal-1', type=DEFORMABLE_BODY)
+mdb.models['Model-1'].PartFromGeometryFile(bodyNum=2, combine=False, 
+    dimensionality=THREE_D, geometryFile=mdb.acis, name='brake_pedal-2', type=
+    DEFORMABLE_BODY)
+del mdb.models['Model-1'].parts['brake_pedal-2']
+mdb.models['Model-1'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='Part-1-1', 
+    part=mdb.models['Model-1'].parts['Part-1'])
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'brake_pedal-1-1', part=mdb.models['Model-1'].parts['brake_pedal-1'])
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(71.0, 0.0, -2.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(-7.32233, 17.67767, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(0.0, 0.2, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(0.0, 0.3, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(0.0, 7.2, 0.0))
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].Material(name='Steel')
+mdb.models['Model-1'].materials['Steel'].Density(table=((7.85e-09, ), ))
+mdb.models['Model-1'].materials['Steel'].Conductivity(table=((48.0, ), ))
+mdb.models['Model-1'].materials['Steel'].Elastic(table=((209000.0, 0.3), ))
+mdb.models['Model-1'].materials['Steel'].HeatGeneration()
+mdb.models['Model-1'].materials['Steel'].Expansion(table=((1.26e-05, ), ))
+mdb.models['Model-1'].materials['Steel'].SpecificHeat(table=((452000000.0, ), 
+    ))
+mdb.models['Model-1'].Material(name='CompositePad')
+mdb.models['Model-1'].materials['CompositePad'].Density(table=((1.45e-09, ), ))
+mdb.models['Model-1'].materials['CompositePad'].Elastic(table=((2200.0, 0.24, 
+    20.0), ), temperatureDependency=ON)
+mdb.models['Model-1'].materials['CompositePad'].Conductivity(table=((1.1, ), ))
+mdb.models['Model-1'].materials['CompositePad'].Expansion(table=((1.1e-05, ), 
+    ))
+mdb.models['Model-1'].materials['CompositePad'].SpecificHeat(table=((
+    12000000.0, ), ))
+mdb.models['Model-1'].HomogeneousSolidSection(material='Steel', name=
+    'SteelSection', thickness=None)
+mdb.models['Model-1'].HomogeneousSolidSection(material='CompositePad', name=
+    'PadSection', thickness=None)
+mdb.models['Model-1'].parts['brake_pedal-1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=Region(
+    cells=mdb.models['Model-1'].parts['brake_pedal-1'].cells.getSequenceFromMask(
+    mask=('[#f ]', ), )), sectionName='PadSection', thicknessAssignment=
+    FROM_SECTION)
+mdb.models['Model-1'].parts['Part-1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), )), sectionName='SteelSection', thicknessAssignment=
+    FROM_SECTION)
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].TempDisplacementDynamicsStep(improvedDtMethod=ON, 
+    massScaling=((SEMI_AUTOMATIC, MODEL, AT_BEGINNING, 1000.0, 0.0, None, 0, 0, 
+    0.0, 0.0, 0, None), ), name='Step-1', previous='Initial', timePeriod=0.1)
+mdb.models['Model-1'].TempDisplacementDynamicsStep(improvedDtMethod=ON, 
+    massScaling=((SEMI_AUTOMATIC, MODEL, AT_BEGINNING, 1000.0, 0.0, None, 0, 0, 
+    0.0, 0.0, 0, None), ), name='Step-2', previous='Step-1', timePeriod=0.04)
+mdb.models['Model-1'].steps['Step-2'].setValues(improvedDtMethod=ON, 
+    timePeriod=0.4)
+mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=(
+    'S', 'SVAVG', 'PE', 'PEVAVG', 'PEEQ', 'PEEQVAVG', 'LE', 'U', 'V', 'A', 
+    'RF', 'CSTRESS', 'NT', 'TEMP', 'HFL', 'RFL', 'EVF'))
+mdb.models['Model-1'].TabularAmplitude(data=((0.0, 0.0), (0.1, 1.0)), name=
+    'Amp-1', smooth=SOLVER_DEFAULT, timeSpan=STEP)
+mdb.models['Model-1'].RadiationToAmbient(ambientTemperature=20.0, 
+    ambientTemperatureAmp='Amp-1', createStepName='Step-2', distributionType=
+    UNIFORM, emissivity=0.6, field='', name='Int-1', radiationType=AMBIENT, 
+    surface=Region(
+    side1Faces=mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    mask=('[#6 ]', ), )))
+mdb.models['Model-1'].FilmCondition(createStepName='Step-2', definition=
+    EMBEDDED_COEFF, filmCoeff=0.1, filmCoeffAmplitude='', name='Int-2', 
+    sinkAmplitude='Amp-1', sinkDistributionType=UNIFORM, sinkFieldName='', 
+    sinkTemperature=20.0, surface=Region(
+    side1Faces=mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    mask=('[#7 ]', ), )))
+mdb.models['Model-1'].amplitudes['Amp-1'].setValues(data=((0.0, 0.0), (0.4, 
+    1.0)), smooth=SOLVER_DEFAULT, timeSpan=STEP)
+mdb.models['Model-1'].ContactProperty('IntProp-1')
+mdb.models['Model-1'].interactionProperties['IntProp-1'].TangentialBehavior(
+    dependencies=0, directionality=ISOTROPIC, elasticSlipStiffness=None, 
+    formulation=PENALTY, fraction=0.005, maximumElasticSlip=FRACTION, 
+    pressureDependency=OFF, shearStressLimit=None, slipRateDependency=OFF, 
+    table=((0.31, ), ), temperatureDependency=OFF)
+mdb.models['Model-1'].interactionProperties['IntProp-1'].HeatGeneration(
+    conversionFraction=1.0, slaveFraction=0.5)
+mdb.models['Model-1'].interactionProperties['IntProp-1'].ThermalConductance(
+    clearanceDepTable=((4000.0, 0.0), (0.0, 4000.0)), clearanceDependency=ON, 
+    definition=TABULAR, dependenciesC=0, massFlowRateDependencyC=OFF, 
+    pressureDependency=OFF, temperatureDependencyC=OFF)
+mdb.models['Model-1'].ContactExp(createStepName='Step-2', name='Int-3')
+mdb.models['Model-1'].interactions['Int-3'].includedPairs.setValuesInStep(
+    stepName='Step-2', useAllstar=ON)
+mdb.models['Model-1'].interactions['Int-3'].contactPropertyAssignments.appendInStep(
+    assignments=((GLOBAL, SELF, 'IntProp-1'), ), stepName='Step-2')
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'brake_pedal-1-2', part=mdb.models['Model-1'].parts['brake_pedal-1'])
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-2', )
+    , vector=(63.67767, 25.37767, -2.0))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'brake_pedal-1-3', part=mdb.models['Model-1'].parts['brake_pedal-1'])
+mdb.models['Model-1'].rootAssembly.rotate(angle=180.0, axisDirection=(63.67767, 
+    49.37767, -2.0), axisPoint=(-66.0, 13.0, 0.0), instanceList=(
+    'brake_pedal-1-3', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-3', )
+    , vector=(-2.482209, -9.679098, 0.392044))
+del mdb.models['Model-1'].rootAssembly.features['brake_pedal-1-3']
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-2', )
+    , vector=(0.0, 0.0, 1.0))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='Part-1-2', 
+    part=mdb.models['Model-1'].parts['Part-1'])
+del mdb.models['Model-1'].rootAssembly.features['Part-1-2']
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='Part-1-2', 
+    part=mdb.models['Model-1'].parts['Part-1'])
+del mdb.models['Model-1'].rootAssembly.features['Part-1-1']
+mdb.models['Model-1'].rootAssembly.ParallelFace(fixedPlane=
+    mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-2'].faces[6], 
+    flip=OFF, movablePlane=
+    mdb.models['Model-1'].rootAssembly.instances['Part-1-2'].faces[2])
+mdb.models['Model-1'].rootAssembly.deleteFeatures(('brake_pedal-1-2', 
+    'Parallel Face-1'))
+del mdb.models['Model-1'].rootAssembly.features['brake_pedal-1-1']
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'brake_pedal-1-1', part=mdb.models['Model-1'].parts['brake_pedal-1'])
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(59.0, 0.0, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(0.0, 2.0, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(0.0, -3.0, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(-40.5, -9.5, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(40.5, 10.5, 10.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(-48.75, 1.25, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(8.25, -11.75, 0.0))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'brake_pedal-1-2', part=mdb.models['Model-1'].parts['brake_pedal-1'])
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-2', )
+    , vector=(48.75, -1.25, 0.0))
+del mdb.models['Model-1'].rootAssembly.features['brake_pedal-1-2']
+mdb.models['Model-1'].interactions['Int-3'].move('Step-2', 'Step-1')
+mdb.models['Model-1'].interactions['Int-3'].move('Step-1', 'Initial')
+mdb.models['Model-1'].interactions['Int-3'].move('Initial', 'Step-1')
+mdb.models['Model-1'].interactions['Int-3'].move('Step-1', 'Step-2')
+mdb.models['Model-1'].rootAssembly.features.changeKey(fromName='Part-1-2', 
+    toName='Part-1')
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(60.985281, 10.5, -8.485281))
+mdb.models['Model-1'].rootAssembly.rotate(angle=-20.0, axisDirection=(-20.0, 
+    33.485281, -3.514719), axisPoint=(33.485281, 0.0, 13.514719), instanceList=
+    ('brake_pedal-1-1', ))
+mdb.models['Model-1'].rootAssembly.rotate(angle=-20.0, axisDirection=(-20.0, 
+    33.485281, -3.514719), axisPoint=(33.485281, 0.0, 13.514719), instanceList=
+    ('brake_pedal-1-1', ))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(-67.87351, -20.349056, 1.011193))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(47.320059, 17.839861, -16.043494))
+mdb.models['Model-1'].rootAssembly.rotate(angle=40.0, axisDirection=(1.139067, 
+    -25.96243, 14.181563), axisPoint=(-1.139067, 25.96243, -14.181563), 
+    instanceList=('brake_pedal-1-1', ))
+del mdb.models['Model-1'].rootAssembly.features['brake_pedal-1-1']
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'brake_pedal-1-1', part=mdb.models['Model-1'].parts['brake_pedal-1'])
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(20.0, -13.0, 12.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(9.648232, 26.162951, -8.485281))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(17.67767, 17.67767, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('brake_pedal-1-1', )
+    , vector=(16.970563, 0.0, 0.0))
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].rootAssembly.Surface(name='Surf-3', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['Part-1'].faces.getSequenceFromMask(
+    ('[#6 ]', ), ))
+mdb.models['Model-1'].interactions['Int-1'].setValues(ambientTemperature=20.0, 
+    ambientTemperatureAmp='Amp-1', distributionType=UNIFORM, emissivity=0.6, 
+    field='', radiationType=AMBIENT, surface=
+    mdb.models['Model-1'].rootAssembly.surfaces['Surf-3'])
+mdb.models['Model-1'].interactions['Int-2'].setValues(definition=EMBEDDED_COEFF
+    , filmCoeff=0.1, filmCoeffAmplitude='', sinkAmplitude='Amp-1', 
+    sinkTemperature=20.0, surface=Region(
+    side1Faces=mdb.models['Model-1'].rootAssembly.instances['Part-1'].faces.getSequenceFromMask(
+    mask=('[#7 ]', ), )))
+# Save by mofid on 2024_06_29-10.54.44; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].rootAssembly.ParallelFace(fixedPlane=
+    mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-1'].faces[8], 
+    flip=OFF, movablePlane=
+    mdb.models['Model-1'].rootAssembly.instances['Part-1'].faces[2])
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=
+    mdb.models['Model-1'].rootAssembly.instances['Part-1'].InterestingPoint(
+    mdb.models['Model-1'].rootAssembly.instances['Part-1'].edges[1], CENTER))
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=
+    mdb.models['Model-1'].rootAssembly.referencePoints[26])
+del mdb.models['Model-1'].rootAssembly.features['RP-2']
+mdb.models['Model-1'].RigidBody(name='Constraint-1', pinRegion=Region(
+    edges=mdb.models['Model-1'].rootAssembly.instances['Part-1'].edges.getSequenceFromMask(
+    mask=('[#2 ]', ), )), refPointRegion=Region(referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[26], )))
+# Save by mofid on 2024_06_29-11.05.48; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].Pressure(amplitude=UNSET, createStepName='Step-1', 
+    distributionType=UNIFORM, field='', magnitude=0.1, name='Load-1', region=
+    Region(
+    side1Faces=mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-1'].faces.getSequenceFromMask(
+    mask=('[#20 ]', ), )))
+mdb.models['Model-1'].Pressure(amplitude=UNSET, createStepName='Step-1', 
+    distributionType=UNIFORM, field='', magnitude=0.1, name='Load-2', region=
+    Region(
+    side1Faces=mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-1'].faces.getSequenceFromMask(
+    mask=('[#80 ]', ), )))
+mdb.models['Model-1'].Pressure(amplitude=UNSET, createStepName='Step-1', 
+    distributionType=UNIFORM, field='', magnitude=0.1, name='Load-3', region=
+    Region(
+    side1Faces=mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-1'].faces.getSequenceFromMask(
+    mask=('[#2000 ]', ), )))
+mdb.models['Model-1'].Pressure(amplitude=UNSET, createStepName='Step-1', 
+    distributionType=UNIFORM, field='', magnitude=0.1, name='Load-4', region=
+    Region(
+    side1Faces=mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-1'].faces.getSequenceFromMask(
+    mask=('[#200 ]', ), )))
+mdb.models['Model-1'].DisplacementBC(amplitude=UNSET, createStepName='Step-1', 
+    distributionType=UNIFORM, fieldName='', fixed=OFF, localCsys=None, name=
+    'BC-1', region=Region(
+    cells=mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-1'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), )), u1=0.0, u2=0.0, u3=UNSET, ur1=UNSET, ur2=UNSET, ur3=
+    UNSET)
+mdb.models['Model-1'].boundaryConditions['BC-1'].move('Step-1', 'Initial')
+mdb.models['Model-1'].DisplacementBC(amplitude=UNSET, createStepName='Initial', 
+    distributionType=UNIFORM, fieldName='', localCsys=None, name='BC-2', 
+    region=Region(
+    cells=mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-1'].cells.getSequenceFromMask(
+    mask=('[#4 ]', ), )), u1=SET, u2=SET, u3=UNSET, ur1=UNSET, ur2=UNSET, ur3=
+    UNSET)
+mdb.models['Model-1'].DisplacementBC(amplitude=UNSET, createStepName='Initial', 
+    distributionType=UNIFORM, fieldName='', localCsys=None, name='BC-3', 
+    region=Region(
+    cells=mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-1'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), )), u1=SET, u2=SET, u3=UNSET, ur1=UNSET, ur2=UNSET, ur3=
+    UNSET)
+mdb.models['Model-1'].DisplacementBC(amplitude=UNSET, createStepName='Initial', 
+    distributionType=UNIFORM, fieldName='', localCsys=None, name='BC-4', 
+    region=Region(
+    cells=mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-1'].cells.getSequenceFromMask(
+    mask=('[#2 ]', ), )), u1=SET, u2=SET, u3=UNSET, ur1=UNSET, ur2=UNSET, ur3=
+    UNSET)
+mdb.models['Model-1'].DisplacementBC(amplitude=UNSET, createStepName='Initial', 
+    distributionType=UNIFORM, fieldName='', localCsys=None, name='BC-5', 
+    region=Region(
+    cells=mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-1'].cells.getSequenceFromMask(
+    mask=('[#8 ]', ), )), u1=SET, u2=SET, u3=UNSET, ur1=UNSET, ur2=UNSET, ur3=
+    UNSET)
+mdb.models['Model-1'].DisplacementBC(amplitude=UNSET, createStepName='Initial', 
+    distributionType=UNIFORM, fieldName='', localCsys=None, name='BC-6', 
+    region=Region(
+    cells=mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-1'].cells.getSequenceFromMask(
+    mask=('[#4 ]', ), )), u1=SET, u2=SET, u3=UNSET, ur1=UNSET, ur2=UNSET, ur3=
+    UNSET)
+mdb.models['Model-1'].VelocityBC(amplitude=UNSET, createStepName='Step-1', 
+    distributionType=UNIFORM, fieldName='', localCsys=None, name='BC-7', 
+    region=Region(
+    cells=mdb.models['Model-1'].rootAssembly.instances['Part-1'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), )), v1=0.0, v2=0.0, v3=0.0, vr1=0.0, vr2=0.0, vr3=0.0)
+mdb.models['Model-1'].boundaryConditions['BC-7'].setValuesInStep(stepName=
+    'Step-2', vr3=123.0)
+mdb.models['Model-1'].Temperature(createStepName='Initial', 
+    crossSectionDistribution=CONSTANT_THROUGH_THICKNESS, distributionType=
+    UNIFORM, magnitudes=(20.0, ), name='Predefined Field-1', region=Region(
+    cells=mdb.models['Model-1'].rootAssembly.instances['Part-1'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['brake_pedal-1-1'].cells.getSequenceFromMask(
+    mask=('[#f ]', ), )))
+mdb.models['Model-1'].parts['Part-1'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=14.0)
+mdb.models['Model-1'].parts['Part-1'].generateMesh()
+mdb.models['Model-1'].parts['Part-1'].deleteMesh()
+mdb.models['Model-1'].parts['Part-1'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=5.0)
+mdb.models['Model-1'].parts['Part-1'].generateMesh()
+mdb.models['Model-1'].parts['Part-1'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D8RT, elemLibrary=EXPLICIT, secondOrderAccuracy=OFF, 
+    distortionControl=DEFAULT), ElemType(elemCode=C3D6T, elemLibrary=EXPLICIT), 
+    ElemType(elemCode=C3D4T, elemLibrary=EXPLICIT)), regions=(
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), ))
+# Save by mofid on 2024_06_29-11.28.01; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].parts['brake_pedal-1'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=5.0)
+mdb.models['Model-1'].parts['brake_pedal-1'].generateMesh()
+mdb.models['Model-1'].parts['brake_pedal-1'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D8RT, elemLibrary=EXPLICIT, secondOrderAccuracy=OFF, 
+    distortionControl=DEFAULT), ElemType(elemCode=C3D6T, elemLibrary=EXPLICIT), 
+    ElemType(elemCode=C3D4T, elemLibrary=EXPLICIT)), regions=(
+    mdb.models['Model-1'].parts['brake_pedal-1'].cells.getSequenceFromMask((
+    '[#f ]', ), ), ))
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.Job(activateLoadBalancing=0, atTime=None, contactPrint=OFF, description='', 
+    echoPrint=OFF, explicitPrecision=SINGLE, historyPrint=OFF, memory=90, 
+    memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-Disk-Analysis', 
+    nodalOutputPrecision=SINGLE, numCpus=2, numDomains=4, 
+    parallelizationMethodExplicit=DOMAIN, queue=None, resultsFormat=ODB, 
+    scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.models['Model-1'].setValues(absoluteZero=-273, stefanBoltzmann=5.67e-11)
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE VHETVAL WILL BE USED WITH THE STATEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE VHETVAL WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 6192, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8063 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'NO VHETVAL SUBROUTINE WAS SUPPLIED FOR THE USER MATERIAL NAMED: STEEL', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': PACKAGER_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+# Save by mofid on 2024_06_29-11.39.07; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE VHETVAL WILL BE USED WITH THE STATEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE VHETVAL WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 1460, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8063 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'NO VHETVAL SUBROUTINE WAS SUPPLIED FOR THE USER MATERIAL NAMED: STEEL', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': PACKAGER_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF, datacheckJob=
+    True)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE VHETVAL WILL BE USED WITH THE STATEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE VHETVAL WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 7852, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8063 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'NO VHETVAL SUBROUTINE WAS SUPPLIED FOR THE USER MATERIAL NAMED: STEEL', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': PACKAGER_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF, datacheckJob=
+    True)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE VHETVAL WILL BE USED WITH THE STATEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE VHETVAL WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 8008, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8063 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'NO VHETVAL SUBROUTINE WAS SUPPLIED FOR THE USER MATERIAL NAMED: STEEL', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': PACKAGER_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].HomogeneousSolidSection(material='Steel', name=
+    'Section-3', thickness=None)
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF, datacheckJob=
+    True)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE VHETVAL WILL BE USED WITH THE STATEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE VHETVAL WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 2488, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8063 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'NO VHETVAL SUBROUTINE WAS SUPPLIED FOR THE USER MATERIAL NAMED: STEEL', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': PACKAGER_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].interactionProperties['IntProp-1'].tangentialBehavior.setValues(
+    dependencies=0, directionality=ISOTROPIC, elasticSlipStiffness=None, 
+    formulation=PENALTY, fraction=0.005, maximumElasticSlip=FRACTION, 
+    pressureDependency=OFF, shearStressLimit=None, slipRateDependency=OFF, 
+    table=((0.31, ), ), temperatureDependency=OFF)
+mdb.models['Model-1'].interactionProperties['IntProp-1'].thermalConductance.setValues(
+    clearanceDependency=OFF, definition=TABULAR, dependenciesP=0, 
+    massFlowRateDependencyP=OFF, pressureDepTable=((50000.0, 0.0), (50000.0, 
+    1000.0)), pressureDependency=ON, temperatureDependencyP=OFF)
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE VHETVAL WILL BE USED WITH THE STATEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE VHETVAL WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 2784, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8063 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'NO VHETVAL SUBROUTINE WAS SUPPLIED FOR THE USER MATERIAL NAMED: STEEL', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': PACKAGER_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+# Save by mofid on 2024_06_29-11.50.54; build 2021.HF3 2020_09_29-22.11.46 167722
+# Save by mofid on 2024_06_29-11.50.56; build 2021.HF3 2020_09_29-22.11.46 167722
+# Save by mofid on 2024_06_29-11.52.40; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE VHETVAL WILL BE USED WITH THE STATEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE VHETVAL WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 4544, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8063 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'NO VHETVAL SUBROUTINE WAS SUPPLIED FOR THE USER MATERIAL NAMED: STEEL', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': PACKAGER_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+del mdb.models['Model-1'].materials['Steel'].heatGeneration
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 4360, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8062 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'Each of the nodes in node set WarnNodeBcAtRbSlaveNode have prescribed boundary conditions and belong to rigid bodies but are not rigid body reference nodes. The boundary conditions at these nodes will not constrain the motion of the rigid bodies. See the status file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 1852, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 9.6893581940094e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0, 'totalEnergy': 5297205.5, 'jobName': 'Job-Disk-Analysis', 
+    'step': 1, 'increment': 0, 'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.0, 
+    'wallTime': 3.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.00500640692189336, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.00500640692189336, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 322, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.000507874006871134, 
+    'wallTime': 4.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0100029967725277, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0100029967725277, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 638, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.000252917205216363, 
+    'wallTime': 5.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0150153990834951, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0150153990834951, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 955, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.000216561908018775, 
+    'wallTime': 5.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0200119893997908, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0200119893997908, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 1271, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.000201127288164571, 
+    'wallTime': 5.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0250085797160864, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0250085797160864, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 1587, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.000185993165359832, 
+    'wallTime': 5.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.030005170032382, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.030005170032382, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 1903, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.000113453796075191, 
+    'wallTime': 6.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0350013189017773, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0350013189017773, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 2219, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 6.52431845082901e-05, 
+    'wallTime': 6.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 7, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0400131307542324, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0400131307542324, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 2536, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.000166723722941242, 
+    'wallTime': 6.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 8, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0450091324746609, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0450091324746609, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 2852, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.000102796257124282, 
+    'wallTime': 7.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 9, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0500051341950893, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0500051341950893, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 3168, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.000110736538772471, 
+    'wallTime': 7.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 10, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0550011359155178, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0550011359155178, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 3484, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.000155039379023947, 
+    'wallTime': 7.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 11, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0600129477679729, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0600129477679729, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 3801, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 5.88725488341879e-05, 
+    'wallTime': 7.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 12, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0650089532136917, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0650089532136917, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 4117, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 5.45565926586278e-05, 
+    'wallTime': 8.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 13, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0700049549341202, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0700049549341202, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 4433, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 5.61017768632155e-05, 
+    'wallTime': 8.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 14, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0750009566545486, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0750009566545486, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 4749, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 8.53533929330297e-05, 
+    'wallTime': 8.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 15, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0800127685070038, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0800127685070038, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 5066, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 6.75036208122037e-05, 
+    'wallTime': 9.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 16, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0850087702274323, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0850087702274323, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 5382, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.000101267571153585, 
+    'wallTime': 9.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 17, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0900047719478607, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0900047719478607, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 5698, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 8.85354675119743e-05, 
+    'wallTime': 9.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 18, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0950007736682892, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0950007736682892, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 6014, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 2.09628087759484e-05, 
+    'wallTime': 9.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 19, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.100000001490116, 
+    'stableTimeIncrement': 1.58119710249593e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.100000001490116, 'totalEnergy': 5297205.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 6331, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 4.29195715696551e-05, 
+    'wallTime': 10.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 20, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.100000001490116, 
+    'stableTimeIncrement': 9.6893581940094e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.0, 
+    'totalEnergy': 5297205.5, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 0, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 4.29195788456127e-05, 'wallTime': 12.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 0, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step2 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.12000085413456, 
+    'stableTimeIncrement': 1.26021984669933e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.0200008526444435, 
+    'totalEnergy': 5297924.5, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 15863, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 2.51192232099129e-05, 'wallTime': 42.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 1, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.140000149607658, 
+    'stableTimeIncrement': 1.26022030144668e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.0400001481175423, 
+    'totalEnergy': 5298606.5, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 31733, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 4.69405085823382e-06, 'wallTime': 75.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 2, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.160000458359718, 
+    'stableTimeIncrement': 1.26021961932565e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.0600004568696022, 
+    'totalEnergy': 5299253.0, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 47617, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 1.82085477717919e-06, 'wallTime': 109.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 3, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.180000767111778, 
+    'stableTimeIncrement': 1.26021973301249e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.0800007656216621, 
+    'totalEnergy': 5299862.0, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 63501, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 8.5083001977182e-07, 'wallTime': 148.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 4, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.200001075863838, 
+    'stableTimeIncrement': 1.26021973301249e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.100001074373722, 
+    'totalEnergy': 5300434.5, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 79385, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 5.44380213796103e-07, 'wallTime': 191.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 5, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.220000118017197, 
+    'stableTimeIncrement': 1.26021973301249e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.120000123977661, 
+    'totalEnergy': 5300970.0, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 95268, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 7.21843889550655e-07, 'wallTime': 235.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 6, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.240000545978546, 
+    'stableTimeIncrement': 1.26021961932565e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.140000537037849, 
+    'totalEnergy': 5301467.0, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 111082, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 5.65020229714719e-07, 'wallTime': 289.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 7, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.260000139474869, 
+    'stableTimeIncrement': 1.26021973301249e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.160000130534172, 
+    'totalEnergy': 5301926.0, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 126872, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 4.54897190138581e-07, 'wallTime': 348.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 8, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.280000984668732, 
+    'stableTimeIncrement': 1.26021973301249e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.180000990629196, 
+    'totalEnergy': 5302348.5, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 142663, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 2.76933661780276e-07, 'wallTime': 444.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 9, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.300000578165054, 
+    'stableTimeIncrement': 1.26021973301249e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.200000584125519, 
+    'totalEnergy': 5302734.0, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 158453, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 1.75435857840966e-07, 'wallTime': 548.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 10, 'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].interactions['Int-3'].move('Step-2', 'Step-1')
+# Save by mofid on 2024_06_29-12.05.09; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.314704537391663, 
+    'stableTimeIncrement': 1.26021984669933e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.214704528450966, 
+    'totalEnergy': 5302994.5, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 170062, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 1.82210712296182e-07, 'wallTime': 755.0})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.320000171661377, 
+    'stableTimeIncrement': 1.26021984669933e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.220000177621841, 
+    'totalEnergy': 5303083.0, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 174243, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 1.11374568234623e-07, 'wallTime': 924.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 11, 'jobName': 'Job-Disk-Analysis'})
+# Save by mofid on 2024_06_29-12.10.49; build 2021.HF3 2020_09_29-22.11.46 167722
+# Save by mofid on 2024_06_29-12.11.05; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.saveAs(pathName='C:/train_brake_disc_bkp2.cae')
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.340001046657562, 
+    'stableTimeIncrement': 1.26021973301249e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.240001037716866, 
+    'totalEnergy': 5303395.5, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 190034, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 7.42529806530001e-08, 'wallTime': 1035.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 12, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.360000640153885, 
+    'stableTimeIncrement': 1.260220074073e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.260000646114349, 
+    'totalEnergy': 5303673.0, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 205918, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 1.14670122286498e-07, 'wallTime': 1097.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 13, 'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].interactions['Int-2'].setValues(definition=EMBEDDED_COEFF
+    , filmCoeff=0.1, filmCoeffAmplitude='', sinkAmplitude='Amp-1', 
+    sinkTemperature=20.0, surface=Region(
+    side1Faces=mdb.models['Model-1'].rootAssembly.instances['Part-1'].faces.getSequenceFromMask(
+    mask=('[#2 ]', ), )))
+mdb.models['Model-1'].interactions['Int-2'].move('Step-2', 'Step-1')
+mdb.models['Model-1'].interactions['Int-3'].move('Step-1', 'Initial')
+mdb.models['Model-1'].interactions['Int-2'].move('Step-1', 'Initial')
+#* ValueError: Film condition cannot be defined in the initial step.
+mdb.models['Model-1'].interactions['Int-1'].move('Step-2', 'Step-1')
+mdb.models['Model-1'].interactions['Int-1'].move('Step-1', 'Initial')
+#* ValueError: Surface radiation cannot be defined in the initial step.
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.38000026345253, 
+    'stableTimeIncrement': 1.26021973301249e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.280000269412994, 
+    'totalEnergy': 5303914.5, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 221896, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 2.2216042339096e-07, 'wallTime': 1152.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 14, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.400001138448715, 
+    'stableTimeIncrement': 1.26021973301249e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.30000114440918, 
+    'totalEnergy': 5304119.5, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 237875, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 5.64232500721573e-08, 'wallTime': 1199.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 15, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.42000076174736, 
+    'stableTimeIncrement': 1.26021973301249e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.320000767707825, 
+    'totalEnergy': 5304286.5, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 253853, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 1.55774429799749e-07, 'wallTime': 1245.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 16, 'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=(
+    'S', 'SVAVG', 'PE', 'PEVAVG', 'PEEQ', 'PEEQVAVG', 'LE', 'U', 'V', 'VR', 
+    'A', 'RF', 'CSTRESS', 'FSLIPR', 'NT', 'TEMP', 'HFL', 'RFL', 'EVF'))
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.440000385046005, 
+    'stableTimeIncrement': 1.26021973301249e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.34000039100647, 
+    'totalEnergy': 5304417.0, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 269831, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 1.48638974906135e-07, 'wallTime': 1293.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 17, 'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].steps['Step-2'].setValues(improvedDtMethod=ON, 
+    timePeriod=0.9)
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.46000000834465, 
+    'stableTimeIncrement': 1.26021973301249e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.360000014305115, 
+    'totalEnergy': 5304510.0, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 285809, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 4.09278975155303e-08, 'wallTime': 1345.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 18, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.480000883340836, 
+    'stableTimeIncrement': 1.26021973301249e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.3800008893013, 
+    'totalEnergy': 5304566.0, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 301788, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 1.4759632449568e-07, 'wallTime': 1398.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 19, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.5, 
+    'stableTimeIncrement': 1.260220074073e-06, 
+    'percentChngMass': 102117.0546875, 'stepTime': 0.400000005960464, 
+    'totalEnergy': 5304584.5, 'jobName': 'Job-Disk-Analysis', 'step': 2, 
+    'increment': 317766, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 8.70979164346863e-08, 'wallTime': 1454.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 1, 'frame': 20, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': EXPLICIT_PHASE, 
+    'message': 'Phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_COMPLETED, {
+    'time': 'Sat Jun 29 12:18:17 2024', 'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].VelocityBC(amplitude=UNSET, createStepName='Initial', 
+    distributionType=UNIFORM, fieldName='', localCsys=None, name='BC-8', 
+    region=Region(referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[26], )), v1=UNSET, v2=
+    UNSET, v3=UNSET, vr1=0.0, vr2=UNSET, vr3=UNSET)
+mdb.models['Model-1'].boundaryConditions['BC-8'].setValuesInStep(stepName=
+    'Step-2', v1=0.0, v2=0.0, v3=0.0, vr1=6.28, vr2=0.0, vr3=0.0)
+mdb.models['Model-1'].boundaryConditions['BC-8'].setValuesInStep(stepName=
+    'Step-1', v1=0.0, v2=0.0, v3=0.0, vr1=6.28, vr2=0.0, vr3=0.0)
+mdb.models['Model-1'].boundaryConditions['BC-7'].setValuesInStep(stepName=
+    'Step-2', vr1=6.28)
+# Save by mofid on 2024_06_29-12.21.08; build 2021.HF3 2020_09_29-22.11.46 167722
+# Save by mofid on 2024_06_29-12.21.13; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OP=NEW on *CONTACT is ignored when the general contact definition is specified as model data.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 11684, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8063 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'Each of the nodes in node set WarnNodeBcAtRbSlaveNode have prescribed boundary conditions and belong to rigid bodies but are not rigid body reference nodes. The boundary conditions at these nodes will not constrain the motion of the rigid bodies. See the status file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 7072, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 9.6893581940094e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0, 'totalEnergy': 5297513.5, 'jobName': 'Job-Disk-Analysis', 
+    'step': 1, 'increment': 0, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 307.935760498047, 'wallTime': 1.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step1 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.00500002456828952, 
+    'stableTimeIncrement': 1.26045017623255e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.00500002456828952, 'totalEnergy': 5297638.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 3960, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.9365234375, 
+    'wallTime': 11.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0100010586902499, 
+    'stableTimeIncrement': 1.26045370052452e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0100010586902499, 'totalEnergy': 5298097.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 7928, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 351.570098876953, 
+    'wallTime': 21.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0150010660290718, 
+    'stableTimeIncrement': 1.18117441161303e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0150010660290718, 'totalEnergy': 5302746.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 12040, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 1185.57214355469, 
+    'wallTime': 33.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.020000783726573, 
+    'stableTimeIncrement': 9.04418300251564e-07, 'percentChngMass': 99900.0, 
+    'stepTime': 0.020000783726573, 'totalEnergy': 5314172.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 17033, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 1100.33703613281, 
+    'wallTime': 47.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0250001810491085, 
+    'stableTimeIncrement': 7.75435296418436e-07, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0250001810491085, 'totalEnergy': 5345377.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 22937, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 27294.498046875, 
+    'wallTime': 62.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'An excessive temperature rate occurs in solving the heat transfer equations. This usually indicates that some elements are badly distorted or an error exists with model definition. You can check the temperature values and see if the distorted elements exist.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0285754967480898, 
+    'stableTimeIncrement': 9.9999998245167e-15, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0285754967480898, 'totalEnergy': 3.40282346638529e+38, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 30101, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 21878.265625, 'wallTime': 79.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': EXPLICIT_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].boundaryConditions['BC-7'].setValuesInStep(stepName=
+    'Step-2', vr1=0.0)
+mdb.models['Model-1'].interactions['Int-1'].move('Step-1', 'Step-2')
+mdb.models['Model-1'].interactions['Int-2'].move('Step-1', 'Step-2')
+mdb.models['Model-1'].interactions['Int-3'].move('Initial', 'Step-1')
+# Save by mofid on 2024_06_29-12.29.14; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 2400, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8062 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'Each of the nodes in node set WarnNodeBcAtRbSlaveNode have prescribed boundary conditions and belong to rigid bodies but are not rigid body reference nodes. The boundary conditions at these nodes will not constrain the motion of the rigid bodies. See the status file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 5584, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 9.6893581940094e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0, 'totalEnergy': 5297513.5, 'jobName': 'Job-Disk-Analysis', 
+    'step': 1, 'increment': 0, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 307.935760498047, 'wallTime': 0.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step1 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.00500002456828952, 
+    'stableTimeIncrement': 1.26044994885888e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.00500002456828952, 'totalEnergy': 5297560.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 3960, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.936553955078, 
+    'wallTime': 8.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0100010586902499, 
+    'stableTimeIncrement': 1.26045370052452e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0100010586902499, 'totalEnergy': 5297940.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 7928, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 351.581970214844, 
+    'wallTime': 17.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0150009207427502, 
+    'stableTimeIncrement': 1.18089474199223e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0150009207427502, 'totalEnergy': 5302475.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 12040, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 1186.48986816406, 
+    'wallTime': 25.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0200003460049629, 
+    'stableTimeIncrement': 9.03837701571319e-07, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0200003460049629, 'totalEnergy': 5313911.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 17034, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 1367.0869140625, 
+    'wallTime': 36.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0250007007271051, 
+    'stableTimeIncrement': 7.74583497786807e-07, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0250007007271051, 'totalEnergy': 5342168.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 22943, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 19319.806640625, 
+    'wallTime': 48.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': 'The ratio of deformation speed to wave speed in the elements in element set WarnElemDeformRateExceedsRatio-Step1 exceed the warning ratio.  Refer to the status file for further details. This message is printed during the first applicable increment, but will not be printed during subsequent increments for the remainder of the step.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'Print-out suppressed for subsequent distorted elements', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'There are a total of 12 excessively distorted elements', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0285745896399021, 
+    'stableTimeIncrement': 9.9999998245167e-15, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0285745896399021, 'totalEnergy': 1.3634391121899e+31, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 30233, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 496867553050624.0, 
+    'wallTime': 65.0})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': 'All  nodes involved in general contact that have undergone deep penetration of their tracked faces during this step have been listed in node set "InfoNodeDeepPenetAll". Please make sure that these nodes and their contacting faces have sufficient mass to allow the code to calculate realistic contact penalties for enforcing the contact constraint.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': EXPLICIT_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].boundaryConditions['BC-1'].move('Initial', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-2'].move('Initial', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-3'].move('Initial', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-4'].move('Initial', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-5'].move('Initial', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-6'].move('Initial', 'Step-1')
+# Save by mofid on 2024_06_29-12.34.33; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 12056, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8063 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'Each of the nodes in node set WarnNodeBcAtRbSlaveNode have prescribed boundary conditions and belong to rigid bodies but are not rigid body reference nodes. The boundary conditions at these nodes will not constrain the motion of the rigid bodies. See the status file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 10864, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 9.6893581940094e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0, 'totalEnergy': 5297513.5, 'jobName': 'Job-Disk-Analysis', 
+    'step': 1, 'increment': 0, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 307.935760498047, 'wallTime': 0.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step1 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.00500002456828952, 
+    'stableTimeIncrement': 1.26044994885888e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.00500002456828952, 'totalEnergy': 5297560.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 3960, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.936553955078, 
+    'wallTime': 8.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0100010586902499, 
+    'stableTimeIncrement': 1.26045370052452e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0100010586902499, 'totalEnergy': 5297942.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 7928, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 351.581970214844, 
+    'wallTime': 18.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0150009207427502, 
+    'stableTimeIncrement': 1.18089474199223e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0150009207427502, 'totalEnergy': 5302471.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 12040, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 1186.48986816406, 
+    'wallTime': 27.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0200003460049629, 
+    'stableTimeIncrement': 9.03837701571319e-07, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0200003460049629, 'totalEnergy': 5313911.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 17034, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 1367.0869140625, 
+    'wallTime': 39.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0250007007271051, 
+    'stableTimeIncrement': 7.74583497786807e-07, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0250007007271051, 'totalEnergy': 5342168.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 22943, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 19319.806640625, 
+    'wallTime': 54.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': 'The ratio of deformation speed to wave speed in the elements in element set WarnElemDeformRateExceedsRatio-Step1 exceed the warning ratio.  Refer to the status file for further details. This message is printed during the first applicable increment, but will not be printed during subsequent increments for the remainder of the step.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': 'Some nodes involved in general contact have penetrated their tracked faces by more than 50.000 percent of the typical element dimension in the general contact domain, 4.7428. Please check the node set "InfoNodeDeepPenetFirst". Please make sure that these nodes and their contacting faces have sufficient mass to allow the code to calculate realistic contact penalties for enforcing the contact constraint.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'Print-out suppressed for subsequent distorted elements', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'There are a total of 12 excessively distorted elements', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0285745896399021, 
+    'stableTimeIncrement': 9.9999998245167e-15, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0285745896399021, 'totalEnergy': 1.3634391121899e+31, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 30233, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 496867553050624.0, 
+    'wallTime': 71.0})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': 'All  nodes involved in general contact that have undergone deep penetration of their tracked faces during this step have been listed in node set "InfoNodeDeepPenetAll". Please make sure that these nodes and their contacting faces have sufficient mass to allow the code to calculate realistic contact penalties for enforcing the contact constraint.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': EXPLICIT_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].boundaryConditions['BC-6'].move('Step-1', 'Step-2')
+mdb.models['Model-1'].boundaryConditions['BC-5'].move('Step-1', 'Step-2')
+mdb.models['Model-1'].boundaryConditions['BC-4'].move('Step-1', 'Step-2')
+mdb.models['Model-1'].boundaryConditions['BC-3'].move('Step-1', 'Step-2')
+mdb.models['Model-1'].boundaryConditions['BC-2'].move('Step-1', 'Step-2')
+mdb.models['Model-1'].boundaryConditions['BC-1'].move('Step-1', 'Step-2')
+# Save by mofid on 2024_06_29-12.38.15; build 2021.HF3 2020_09_29-22.11.46 167722
+# Save by mofid on 2024_06_29-12.41.54; build 2021.HF3 2020_09_29-22.11.46 167722
+# Save by mofid on 2024_06_29-12.41.54; build 2021.HF3 2020_09_29-22.11.46 167722
+# Save by mofid on 2024_06_29-12.53.29; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 10948, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8063 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'Each of the nodes in node set WarnNodeBcAtRbSlaveNode have prescribed boundary conditions and belong to rigid bodies but are not rigid body reference nodes. The boundary conditions at these nodes will not constrain the motion of the rigid bodies. See the status file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 6020, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 9.6893581940094e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0, 'totalEnergy': 5297513.5, 'jobName': 'Job-Disk-Analysis', 
+    'step': 1, 'increment': 0, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 307.935760498047, 'wallTime': 1.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step1 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.00500150769948959, 
+    'stableTimeIncrement': 2.12140912481118e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.00500150769948959, 'totalEnergy': 5297548.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 2354, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 309.576751708984, 
+    'wallTime': 7.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0100020077079535, 
+    'stableTimeIncrement': 2.12139525501698e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0100020077079535, 'totalEnergy': 5298202.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 4711, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 334.732147216797, 
+    'wallTime': 12.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0150007763877511, 
+    'stableTimeIncrement': 1.29788270442077e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0150007763877511, 'totalEnergy': 5670983.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 7447, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 61229.109375, 'wallTime': 17.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0200003907084465, 
+    'stableTimeIncrement': 1.26303848446696e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0200003907084465, 'totalEnergy': 5682254.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 11429, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 46490.8359375, 'wallTime': 25.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0250001419335604, 
+    'stableTimeIncrement': 8.80759387200669e-07, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0250001419335604, 'totalEnergy': 5722030.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 16990, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 37674.83984375, 
+    'wallTime': 35.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'An excessive temperature rate occurs in solving the heat transfer equations. This usually indicates that some elements are badly distorted or an error exists with model definition. You can check the temperature values and see if the distorted elements exist.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0285783912986517, 
+    'stableTimeIncrement': 9.9999998245167e-15, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0285783912986517, 'totalEnergy': 3.40282346638529e+38, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 28562, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 29897.34375, 'wallTime': 55.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': EXPLICIT_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].boundaryConditions['BC-6'].move('Step-2', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-7'].move('Step-1', 'Initial')
+mdb.models['Model-1'].boundaryConditions['BC-7'].move('Initial', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-6'].move('Step-1', 'Initial')
+mdb.models['Model-1'].boundaryConditions['BC-5'].move('Step-2', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-5'].move('Step-1', 'Initial')
+mdb.models['Model-1'].boundaryConditions['BC-4'].move('Step-2', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-4'].move('Step-1', 'Initial')
+mdb.models['Model-1'].boundaryConditions['BC-3'].move('Step-2', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-3'].move('Step-1', 'Initial')
+mdb.models['Model-1'].boundaryConditions['BC-2'].move('Step-2', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-2'].move('Step-1', 'Initial')
+mdb.models['Model-1'].boundaryConditions['BC-1'].move('Step-2', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-1'].move('Step-1', 'Initial')
+# Save by mofid on 2024_06_29-12.57.03; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].boundaryConditions['BC-7'].setValuesInStep(stepName=
+    'Step-2', vr3=0.0)
+# Save by mofid on 2024_06_29-12.57.27; build 2021.HF3 2020_09_29-22.11.46 167722
+# Save by mofid on 2024_06_29-12.57.43; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 7412, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8062 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'Each of the nodes in node set WarnNodeBcAtRbSlaveNode have prescribed boundary conditions and belong to rigid bodies but are not rigid body reference nodes. The boundary conditions at these nodes will not constrain the motion of the rigid bodies. See the status file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 11596, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 9.6893581940094e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0, 'totalEnergy': 5297513.5, 'jobName': 'Job-Disk-Analysis', 
+    'step': 1, 'increment': 0, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 307.935760498047, 'wallTime': 0.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step1 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.00500002456828952, 
+    'stableTimeIncrement': 1.26044994885888e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.00500002456828952, 'totalEnergy': 5297560.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 3960, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.936553955078, 
+    'wallTime': 7.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0100010586902499, 
+    'stableTimeIncrement': 1.26045370052452e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0100010586902499, 'totalEnergy': 5297942.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 7928, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 351.581970214844, 
+    'wallTime': 15.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0150009207427502, 
+    'stableTimeIncrement': 1.18089474199223e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0150009207427502, 'totalEnergy': 5302471.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 12040, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 1186.48986816406, 
+    'wallTime': 22.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0200003460049629, 
+    'stableTimeIncrement': 9.03837701571319e-07, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0200003460049629, 'totalEnergy': 5313911.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 17034, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 1367.0869140625, 
+    'wallTime': 32.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0250007007271051, 
+    'stableTimeIncrement': 7.74583497786807e-07, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0250007007271051, 'totalEnergy': 5342168.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 22943, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 19319.806640625, 
+    'wallTime': 43.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': 'The ratio of deformation speed to wave speed in the elements in element set WarnElemDeformRateExceedsRatio-Step1 exceed the warning ratio.  Refer to the status file for further details. This message is printed during the first applicable increment, but will not be printed during subsequent increments for the remainder of the step.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'Print-out suppressed for subsequent distorted elements', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'There are a total of 12 excessively distorted elements', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0285745896399021, 
+    'stableTimeIncrement': 9.9999998245167e-15, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0285745896399021, 'totalEnergy': 1.3634391121899e+31, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 30233, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 496867553050624.0, 
+    'wallTime': 57.0})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': 'All  nodes involved in general contact that have undergone deep penetration of their tracked faces during this step have been listed in node set "InfoNodeDeepPenetAll". Please make sure that these nodes and their contacting faces have sufficient mass to allow the code to calculate realistic contact penalties for enforcing the contact constraint.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': EXPLICIT_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].boundaryConditions['BC-1'].move('Initial', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-2'].move('Initial', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-3'].move('Initial', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-4'].move('Initial', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-5'].move('Initial', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-6'].move('Initial', 'Step-1')
+# Save by mofid on 2024_06_29-13.03.21; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 6996, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8063 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'Each of the nodes in node set WarnNodeBcAtRbSlaveNode have prescribed boundary conditions and belong to rigid bodies but are not rigid body reference nodes. The boundary conditions at these nodes will not constrain the motion of the rigid bodies. See the status file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 5804, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 9.6893581940094e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0, 'totalEnergy': 5297513.5, 'jobName': 'Job-Disk-Analysis', 
+    'step': 1, 'increment': 0, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 307.935760498047, 'wallTime': 0.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step1 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.00500002456828952, 
+    'stableTimeIncrement': 1.26044994885888e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.00500002456828952, 'totalEnergy': 5297560.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 3960, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.936553955078, 
+    'wallTime': 8.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0100010586902499, 
+    'stableTimeIncrement': 1.26045370052452e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0100010586902499, 'totalEnergy': 5297942.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 7928, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 351.581970214844, 
+    'wallTime': 15.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0150009207427502, 
+    'stableTimeIncrement': 1.18089474199223e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0150009207427502, 'totalEnergy': 5302471.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 12040, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 1186.48986816406, 
+    'wallTime': 23.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0200003460049629, 
+    'stableTimeIncrement': 9.03837701571319e-07, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0200003460049629, 'totalEnergy': 5313911.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 17034, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 1367.0869140625, 
+    'wallTime': 34.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0250007007271051, 
+    'stableTimeIncrement': 7.74583497786807e-07, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0250007007271051, 'totalEnergy': 5342168.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 22943, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 19319.806640625, 
+    'wallTime': 51.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': 'The ratio of deformation speed to wave speed in the elements in element set WarnElemDeformRateExceedsRatio-Step1 exceed the warning ratio.  Refer to the status file for further details. This message is printed during the first applicable increment, but will not be printed during subsequent increments for the remainder of the step.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'Print-out suppressed for subsequent distorted elements', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'There are a total of 12 excessively distorted elements', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0285745896399021, 
+    'stableTimeIncrement': 9.9999998245167e-15, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0285745896399021, 'totalEnergy': 1.3634391121899e+31, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 30233, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 496867553050624.0, 
+    'wallTime': 80.0})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': 'All  nodes involved in general contact that have undergone deep penetration of their tracked faces during this step have been listed in node set "InfoNodeDeepPenetAll". Please make sure that these nodes and their contacting faces have sufficient mass to allow the code to calculate realistic contact penalties for enforcing the contact constraint.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': EXPLICIT_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].boundaryConditions['BC-5'].setValuesInStep(stepName=
+    'Step-2', u3=0.0, ur1=0.0, ur2=0.0, ur3=0.0)
+mdb.models['Model-1'].boundaryConditions['BC-1'].setValues(u3=0.0, ur1=0.0, 
+    ur2=0.0, ur3=0.0)
+mdb.models['Model-1'].boundaryConditions['BC-2'].setValues(u3=0.0, ur1=0.0, 
+    ur2=0.0, ur3=0.0)
+mdb.models['Model-1'].boundaryConditions['BC-3'].setValues(u3=0.0, ur1=0.0, 
+    ur2=0.0, ur3=0.0)
+mdb.models['Model-1'].boundaryConditions['BC-4'].setValues(u3=0.0, ur1=0.0, 
+    ur2=0.0, ur3=0.0)
+mdb.models['Model-1'].boundaryConditions['BC-5'].setValues(u3=0.0, ur1=0.0, 
+    ur2=0.0, ur3=0.0)
+mdb.models['Model-1'].boundaryConditions['BC-6'].setValues(u3=0.0, ur1=0.0, 
+    ur2=0.0, ur3=0.0)
+# Save by mofid on 2024_06_29-13.07.45; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 5700, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 10907 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'Each of the nodes in node set WarnNodeBcAtRbSlaveNode have prescribed boundary conditions and belong to rigid bodies but are not rigid body reference nodes. The boundary conditions at these nodes will not constrain the motion of the rigid bodies. See the status file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 5664, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 9.6893581940094e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0, 'totalEnergy': 5297513.5, 'jobName': 'Job-Disk-Analysis', 
+    'step': 1, 'increment': 0, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 307.935760498047, 'wallTime': 1.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step1 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.00500119477510452, 
+    'stableTimeIncrement': 2.11058932109154e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.00500119477510452, 'totalEnergy': 5297595.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 2366, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.936096191406, 
+    'wallTime': 8.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0100006777793169, 
+    'stableTimeIncrement': 2.11058932109154e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0100006777793169, 'totalEnergy': 5298246.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 4735, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.935760498047, 
+    'wallTime': 15.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0150014311075211, 
+    'stableTimeIncrement': 2.06030676963564e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0150014311075211, 'totalEnergy': 5300307.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 7124, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.935638427734, 
+    'wallTime': 22.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': 'Some nodes involved in general contact have penetrated their tracked faces by more than 50.000 percent of the typical element dimension in the general contact domain, 4.4349. Please check the node set "InfoNodeDeepPenetFirst". Please make sure that these nodes and their contacting faces have sufficient mass to allow the code to calculate realistic contact penalties for enforcing the contact constraint.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0200002249330282, 
+    'stableTimeIncrement': 1.14923182081839e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0200002249330282, 'totalEnergy': 5304393.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 10282, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.935974121094, 
+    'wallTime': 35.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0250002015382051, 
+    'stableTimeIncrement': 1.11915915113059e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0250002015382051, 'totalEnergy': 5312869.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 14734, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.936096191406, 
+    'wallTime': 50.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'An excessive temperature rate occurs in solving the heat transfer equations. This usually indicates that some elements are badly distorted or an error exists with model definition. You can check the temperature values and see if the distorted elements exist.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0285767465829849, 
+    'stableTimeIncrement': 9.9999998245167e-15, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0285767465829849, 'totalEnergy': 3.40282346638529e+38, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 22762, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.935974121094, 
+    'wallTime': 82.0})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': 'All  nodes involved in general contact that have undergone deep penetration of their tracked faces during this step have been listed in node set "InfoNodeDeepPenetAll". Please make sure that these nodes and their contacting faces have sufficient mass to allow the code to calculate realistic contact penalties for enforcing the contact constraint.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': EXPLICIT_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].interactionProperties['IntProp-1'].tangentialBehavior.setValues(
+    dependencies=0, directionality=ISOTROPIC, elasticSlipStiffness=None, 
+    formulation=PENALTY, fraction=0.005, maximumElasticSlip=FRACTION, 
+    pressureDependency=OFF, shearStressLimit=None, slipRateDependency=OFF, 
+    table=((0.31, ), ), temperatureDependency=OFF)
+mdb.models['Model-1'].interactionProperties['IntProp-1'].thermalConductance.setValues(
+    clearanceDependency=OFF, definition=TABULAR, dependenciesP=0, 
+    massFlowRateDependencyP=OFF, pressureDepTable=((5000.0, 0.0, 0.0), (5000.0, 
+    1000.0, 200.0)), pressureDependency=ON, temperatureDependencyP=ON)
+mdb.models['Model-1'].interactionProperties['IntProp-1'].heatGeneration.setValues(
+    conversionFraction=1.0, slaveFraction=0.5)
+# Save by mofid on 2024_06_29-13.19.10; build 2021.HF3 2020_09_29-22.11.46 167722
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-Disk-Analysis'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 0, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'DATALINE ENTRIES ARE NOT SUFFICIENT TO DESCRIBE A VARIATION OF PROPERTIES WITH RESPECT TO THE INDEPENDENT VARIABLE IN COLUMN 2 OF THE TABLE. THIS DEPENDENCY WILL THEREFORE BE IGNORED DURING THE ANALYSIS.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8RT', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'DATALINE ENTRIES ARE NOT SUFFICIENT TO DESCRIBE A VARIATION OF PROPERTIES WITH RESPECT TO THE INDEPENDENT VARIABLE IN COLUMN 2 OF THE TABLE. THIS DEPENDENCY WILL THEREFORE BE IGNORED DURING THE ANALYSIS.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 8444, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 10909 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'Each of the nodes in node set WarnNodeBcAtRbSlaveNode have prescribed boundary conditions and belong to rigid bodies but are not rigid body reference nodes. The boundary conditions at these nodes will not constrain the motion of the rigid bodies. See the status file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'DESKTOP-QCIN5NE', 'handle': 7992, 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 9.6893581940094e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0, 'totalEnergy': 5297513.5, 'jobName': 'Job-Disk-Analysis', 
+    'step': 1, 'increment': 0, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 307.935760498047, 'wallTime': 0.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step1 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.00500697316601872, 
+    'stableTimeIncrement': 1.25999531519483e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.00500697316601872, 'totalEnergy': 5298025.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 400, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.935760498047, 
+    'wallTime': 1.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0100091192871332, 
+    'stableTimeIncrement': 1.25999531519483e-05, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0100091192871332, 'totalEnergy': 5301907.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 797, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.935760498047, 
+    'wallTime': 2.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0150071401149035, 
+    'stableTimeIncrement': 8.90362025529612e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0150071401149035, 'totalEnergy': 5312001.0, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 1277, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.935974121094, 
+    'wallTime': 3.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0200019720941782, 
+    'stableTimeIncrement': 8.90362025529612e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0200019720941782, 'totalEnergy': 5335053.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 1838, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.935974121094, 
+    'wallTime': 4.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0250057075172663, 
+    'stableTimeIncrement': 8.90362025529612e-06, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0250057075172663, 'totalEnergy': 5402539.5, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 2400, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.935760498047, 
+    'wallTime': 5.0})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {'phase': EXPLICIT_PHASE, 
+    'message': 'An excessive temperature rate occurs in solving the heat transfer equations. This usually indicates that some elements are badly distorted or an error exists with model definition. You can check the temperature values and see if the distorted elements exist.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(STATUS, {
+    'totalTime': 0.0285630878061056, 
+    'stableTimeIncrement': 9.9999998245167e-15, 'percentChngMass': 99900.0, 
+    'stepTime': 0.0285630878061056, 'totalEnergy': 3.40282346638529e+38, 
+    'jobName': 'Job-Disk-Analysis', 'step': 1, 'increment': 3240, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 307.935974121094, 
+    'wallTime': 7.0})
+mdb.jobs['Job-Disk-Analysis']._Message(WARNING, {'phase': EXPLICIT_PHASE, 
+    'message': 'All  nodes involved in general contact that have undergone deep penetration of their tracked faces during this step have been listed in node set "InfoNodeDeepPenetAll". Please make sure that these nodes and their contacting faces have sufficient mass to allow the code to calculate realistic contact penalties for enforcing the contact constraint.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ABORTED, {'phase': EXPLICIT_PHASE, 
+    'message': 'Analysis failed due to Errors', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.jobs['Job-Disk-Analysis']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-Disk-Analysis'})
+mdb.models['Model-1'].boundaryConditions['BC-5'].move('Step-1', 'Initial')
+mdb.models['Model-1'].boundaryConditions['BC-5'].move('Initial', 'Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-1'].setValues(u3=UNSET, ur1=UNSET, 
+    ur2=UNSET, ur3=UNSET)
+mdb.models['Model-1'].boundaryConditions['BC-2'].setValues(u3=UNSET, ur1=UNSET, 
+    ur2=UNSET, ur3=UNSET)
+mdb.models['Model-1'].boundaryConditions['BC-3'].setValues(u3=UNSET, ur1=UNSET, 
+    ur2=UNSET, ur3=UNSET)
+mdb.models['Model-1'].boundaryConditions['BC-4'].setValues(u3=UNSET, ur1=UNSET, 
+    ur2=UNSET, ur3=UNSET)
+mdb.models['Model-1'].boundaryConditions['BC-5'].setValues(u3=UNSET, ur1=UNSET, 
+    ur2=UNSET, ur3=UNSET)
+mdb.models['Model-1'].boundaryConditions['BC-5'].setValuesInStep(stepName=
+    'Step-2', u3=FREED, ur1=FREED, ur2=FREED, ur3=FREED)
+mdb.models['Model-1'].boundaryConditions['BC-5'].suppress()
+del mdb.models['Model-1'].boundaryConditions['BC-5']
+mdb.models['Model-1'].boundaryConditions['BC-6'].suppress()
+del mdb.models['Model-1'].boundaryConditions['BC-6']
+mdb.models['Model-1'].boundaryConditions['BC-7'].suppress()
+del mdb.models['Model-1'].boundaryConditions['BC-7']
+# Save by mofid on 2024_06_29-13.52.42; build 2021.HF3 2020_09_29-22.11.46 167722
